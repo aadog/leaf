@@ -1,27 +1,11 @@
-Leaf
-====
-A pragmatic game server framework in Go (golang).
+leaf太啰嗦了，修改了一下，撸起袖子就是干,修改如下
 
-Features
----------
+示例项目:传奇私服m2 leaf实现，自己找下我git
 
-* Extremely easy to use
-* Reliable
-* Multicore support
-* Modularity
+1.去除繁琐的暴露层，让他直接暴露
 
-Community
----------
+2.支持自定义tcp协议
 
-* QQ 群：376389675
+3.支持协议解析处Conn连接回调，Close关闭回调
 
-Documentation
----------
-
-* [中文文档](https://github.com/name5566/leaf/blob/master/TUTORIAL_ZH.md)
-* [English](https://github.com/name5566/leaf/blob/master/TUTORIAL_EN.md)
-
-Licensing
----------
-
-Leaf is licensed under the Apache License, Version 2.0. See [LICENSE](https://github.com/name5566/leaf/blob/master/LICENSE) for the full license text.
+基本你想到的都有，思路是，能继承就继承，不能继承就直重写
