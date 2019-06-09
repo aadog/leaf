@@ -1,7 +1,6 @@
 package gate
 
 import (
-
 	"github.com/name5566/leaf/chanrpc"
 	"github.com/name5566/leaf/log"
 	"github.com/name5566/leaf/network"
@@ -105,6 +104,7 @@ func (a *agent) Run() {
 				log.Debug("unmarshal message error: %v", err)
 				break
 			}
+
 			err = a.gate.Processor.Route(msg, a)
 			if err != nil {
 				log.Debug("route message error: %v", err)
