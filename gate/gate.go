@@ -1,9 +1,9 @@
 package gate
 
 import (
-	"github.com/name5566/leaf/chanrpc"
-	"github.com/name5566/leaf/log"
-	"github.com/name5566/leaf/network"
+	"github.com/a97077088/leaf/chanrpc"
+	"github.com/a97077088/leaf/log"
+	"github.com/a97077088/leaf/network"
 	"net"
 	"reflect"
 	"time"
@@ -23,7 +23,7 @@ type Gate struct {
 	KeyFile     string
 
 	// tcp
-	TCPAddr      string
+	TCPAddr   string
 	MsgParser network.MessageParser
 }
 
@@ -53,7 +53,7 @@ func (gate *Gate) Run(closeSig chan bool) {
 		tcpServer.Addr = gate.TCPAddr
 		tcpServer.MaxConnNum = gate.MaxConnNum
 		tcpServer.PendingWriteNum = gate.PendingWriteNum
-		tcpServer.MsgParser=gate.MsgParser
+		tcpServer.MsgParser = gate.MsgParser
 		tcpServer.NewAgent = func(conn *network.TCPConn) network.Agent {
 			a := &agent{conn: conn, gate: gate}
 			if gate.AgentChanRPC != nil {
@@ -86,11 +86,9 @@ type agent struct {
 	userData interface{}
 }
 
-
-
 func (a *agent) Run() {
-	a.conn.Conn()   //触发连接事件
-	defer a.conn.DeConn()  //触发结束连接事件
+	a.conn.Conn()         //触发连接事件
+	defer a.conn.DeConn() //触发结束连接事件
 	for {
 		data, err := a.conn.ReadMsg()
 		if err != nil {

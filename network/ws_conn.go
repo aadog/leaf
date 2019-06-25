@@ -2,8 +2,8 @@ package network
 
 import (
 	"errors"
+	"github.com/a97077088/leaf/log"
 	"github.com/gorilla/websocket"
-	"github.com/name5566/leaf/log"
 	"net"
 	"sync"
 )
@@ -137,8 +137,8 @@ func (wsConn *WSConn) WriteMsg(args ...[]byte) error {
 	return nil
 }
 
-func (wsConn *WSConn) Conn(){
+func (wsConn *WSConn) Conn() {
 }
-func (wsConn *WSConn) DeConn(){
+func (wsConn *WSConn) DeConn() {
 
 }

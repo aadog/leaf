@@ -2,8 +2,8 @@ package console
 
 import (
 	"bufio"
-	"github.com/name5566/leaf/conf"
-	"github.com/name5566/leaf/network"
+	"github.com/a97077088/leaf/conf"
+	"github.com/a97077088/leaf/network"
 	"math"
 	"strconv"
 	"strings"
@@ -44,8 +44,8 @@ func newAgent(conn *network.TCPConn) network.Agent {
 }
 
 func (a *Agent) Run() {
-	a.conn.Conn()   //触发连接事件
-	defer a.conn.DeConn()  //触发结束连接事件
+	a.conn.Conn()         //触发连接事件
+	defer a.conn.DeConn() //触发结束连接事件
 	for {
 		if conf.ConsolePrompt != "" {
 			a.conn.Write([]byte(conf.ConsolePrompt))

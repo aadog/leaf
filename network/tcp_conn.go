@@ -1,7 +1,7 @@
 package network
 
 import (
-	"github.com/name5566/leaf/log"
+	"github.com/a97077088/leaf/log"
 	"net"
 	"sync"
 )
@@ -111,9 +111,9 @@ func (tcpConn *TCPConn) ReadMsg() ([]byte, error) {
 func (tcpConn *TCPConn) WriteMsg(args ...[]byte) error {
 	return tcpConn.msgParser.Write(tcpConn, args...)
 }
-func (tcpConn *TCPConn) Conn(){
+func (tcpConn *TCPConn) Conn() {
 	tcpConn.msgParser.Conn(tcpConn)
 }
-func (tcpConn *TCPConn) DeConn(){
+func (tcpConn *TCPConn) DeConn() {
 	tcpConn.msgParser.Close(tcpConn)
 }

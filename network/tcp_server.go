@@ -2,7 +2,7 @@ package network
 
 import (
 	"errors"
-	"github.com/name5566/leaf/log"
+	"github.com/a97077088/leaf/log"
 	"net"
 	"sync"
 	"time"
@@ -49,7 +49,7 @@ func (server *TCPServer) init() {
 	server.ln = ln
 	server.conns = make(ConnSet)
 
-	if server.MsgParser==nil{
+	if server.MsgParser == nil {
 		panic(errors.New("必须指定msgParse"))
 	}
 
